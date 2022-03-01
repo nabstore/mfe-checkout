@@ -1,8 +1,8 @@
 {
   "name": "@nabstore/mfe-checkout",
   "scripts": {
-    "start": "webpack serve",
-    "start:standalone": "webpack serve --env standalone",
+    "start": "webpack serve -- --port 5620 ",
+    "start:standalone": "webpack serve -- --port 5620  --env standalone",
     "build": "concurrently yarn:build:*",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
@@ -36,15 +36,21 @@
     "jest-cli": "^27.0.6",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
-    "webpack": "^5.51.1",
+    "webpack": "^5.69.1",
     "webpack-cli": "^4.8.0",
     "webpack-config-single-spa-react": "^4.0.0",
     "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "antd": "^4.18.9",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "single-spa-react": "^4.3.1"
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "single-spa-react": "^4.3.1",
+    "styled-components": "^5.3.3"
   }
 }
