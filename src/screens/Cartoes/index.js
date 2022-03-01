@@ -7,12 +7,13 @@ import { routes } from "@nabstore/utils";
 import { Anchor, Button, LoadingIcon, Typography } from "@nabstore/styleguide";
 import useGetCartoes from "../../hooks/useGetCartoes";
 import CartaoItem from "../../components/CartaoItem";
+import CreateCartaoModal from "../../components/CreateCartaoModal";
 
 const Cartoes = ({ selectCartAction }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data: cartoes, isLoading, error } = useGetCartoes();
-  const [showModal, setShowModal] = useState(false);
+  const [isCreateCartaoModalOpen, setIsCreateCartaoModalOpen] = useState(false);
 
   const handleSelect = (cartao) => {
     dispatch(selectCartAction(cartao));
@@ -24,16 +25,16 @@ const Cartoes = ({ selectCartAction }) => {
   }
 
   return (
-    <div className="container">
-      {/* <AddCartao 
-        handleClose={() => setShowModal(false)} 
-        showModal={showModal} 
-      /> */}
+    <div className="container pb-5">
+      <CreateCartaoModal 
+        handleClose={() => setIsCreateCartaoModalOpen(false)} 
+        showModal={isCreateCartaoModalOpen} 
+      />
 
       <Anchor.GoBack path={routes.CART} text="Voltar ao carrinho" />
 
       <div className="float-end">
-        <Button.Primary onClick={() => setShowModal(true)}>
+        <Button.Primary onClick={() => setIsCreateCartaoModalOpen(true)}>
           <FontAwesomeIcon className="me-2" icon={faPlusCircle} /> Novo Cartão
         </Button.Primary>
       </div>
