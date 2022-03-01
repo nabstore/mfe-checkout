@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { checkoutRoutes } from "@nabstore/utils";
 import Cart from "./screens/Cart";
 import Cartoes from "./screens/Cartoes";
+import Compras from "./screens/Compras";
 
 const App = ({
   store,
@@ -32,6 +33,7 @@ const App = ({
             path={checkoutRoutes.CARDS}
             element={<Cartoes selectCartAction={selectCartAction} />}
           />
+          <Route exact path={checkoutRoutes.COMPRAS} element={<Compras />} />
         </Routes>
       </div>
     </BrowserRouter>
