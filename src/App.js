@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { checkoutRoutes } from "@nabstore/utils";
 import Cart from "./screens/Cart";
+import Cartoes from "./screens/Cartoes";
 
 const App = ({
   store,
@@ -25,6 +26,11 @@ const App = ({
                 removeProductFromCartAction={removeProductFromCartAction}
               />
             }
+          />
+          <Route
+            exact
+            path={checkoutRoutes.CARDS}
+            element={<Cartoes selectCartAction={selectCartAction} />}
           />
         </Routes>
       </div>

@@ -13,6 +13,31 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
+const createCartao = async ({ number, apelido, validade, cvv, titular }) => {
+  const res = await api.post(
+    `/cartao`,
+    {
+      number,
+      apelido,
+      validade,
+      cvv,
+      titular,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    }
+  );
+  return res.data;
+};
+
+const fetchCartoes = async () => {
+  const res = await api.get(`/cartao`);
+  return res.data;
+};
+
 const fetchCompras = async () => {
   const res = await api.get(`/compras`);
   return res.data;
@@ -33,6 +58,8 @@ const getImageUrl = (produtoId) => {
 };
 
 const apiMethods = {
+  createCartao,
+  fetchCartoes,
   fetchCompras,
   fetchOfertas,
   getEstimativaEntrega,
