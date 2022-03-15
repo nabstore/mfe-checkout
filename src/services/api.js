@@ -43,6 +43,11 @@ const fetchCompras = async () => {
   return res.data;
 };
 
+const fetchCompraById = async (id) => {
+  const res = await api.get(`/compras/${id}`);
+  return res.data;
+};
+
 const fetchOfertas = async () => {
   const res = await api.get(`produtos/ofertas`);
   return res.data;
@@ -61,6 +66,7 @@ const apiMethods = {
   createCartao,
   fetchCartoes,
   fetchCompras,
+  fetchCompraById,
   fetchOfertas,
   getEstimativaEntrega,
   getImageUrl,
