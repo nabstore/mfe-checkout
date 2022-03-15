@@ -4,7 +4,6 @@ import { Button, Typography } from "@nabstore/styleguide";
 import Card from "../Card";
 import useGetOffers from "../../hooks/useGetOffers";
 import { currencyFormatter, defaultImages } from "@nabstore/utils";
-import "antd/dist/antd.css";
 import { notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 
