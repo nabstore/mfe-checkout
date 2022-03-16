@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import App from "./App";
+import DeliveryEstimateFragment from "./fragments/DeliveryEstimateFragment";
+import LastPurchasesFragment from "./fragments/LastPurchasesFragment";
 
 const lifecycles = singleSpaReact({
   React,
@@ -17,3 +19,4 @@ const lifecycles = singleSpaReact({
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;
+export { DeliveryEstimateFragment, LastPurchasesFragment };
