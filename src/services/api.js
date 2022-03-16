@@ -33,6 +33,25 @@ const createCartao = async ({ number, apelido, validade, cvv, titular }) => {
   return res.data;
 };
 
+const createCompra = async ({ userId, cartaoId, enderecoId, produtos }) => {
+  const res = await api.post(
+    `/compras`,
+    {
+      userId,
+      enderecoId,
+      cartaoId,
+      produtos,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    }
+  );
+  return res.data;
+};
+
 const fetchCartoes = async () => {
   const res = await api.get(`/cartao`);
   return res.data;
@@ -64,6 +83,7 @@ const getImageUrl = (produtoId) => {
 
 const apiMethods = {
   createCartao,
+  createCompra,
   fetchCartoes,
   fetchCompras,
   fetchCompraById,

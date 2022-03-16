@@ -6,6 +6,7 @@ import Cart from "./screens/Cart";
 import Cartoes from "./screens/Cartoes";
 import Compras from "./screens/Compras";
 import Compra from "./screens/Compra";
+import Checkout from "./screens/Checkout";
 
 const App = ({
   store,
@@ -36,6 +37,7 @@ const App = ({
           />
           <Route exact path={checkoutRoutes.COMPRAS} element={<Compras />} />
           <Route exact path={checkoutRoutes.COMPRA} element={<Compra />} />
+          <Route exact path={checkoutRoutes.CHECKOUT} element={<Checkout cleanCartAction={cleanCartAction} />} />
         </Routes>
       </div>
     </BrowserRouter>
