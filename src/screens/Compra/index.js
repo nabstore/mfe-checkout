@@ -1,9 +1,11 @@
 import React from "react";
-import { Card, Info, Value } from "./styles";
+import { Card } from "./styles";
 import { useParams } from "react-router";
 import { currencyFormatter, routes } from "@nabstore/utils";
 import { Anchor, Typography, LoadingIcon } from "@nabstore/styleguide";
 import useGetCompra from "../../hooks/useGetCompra";
+import Info from "../../components/Info";
+import Value from "../../components/Value";
 
 const Compra = () => {
   const { id } = useParams();
@@ -31,7 +33,7 @@ const Compra = () => {
     return (
       <div className="d-flex flex-row">
         <Card className="card" style={{ width: "60%" }}>
-          <h3>Produtos</h3>
+          <Typography.Subtitle className="m-2 mb-4" bold>Produtos</Typography.Subtitle>
           {compra.CompraItems.map((prod) => (
             <div
               className="d-flex flex-row justify-content-between p-2"
@@ -66,7 +68,7 @@ const Compra = () => {
         </Card>
 
         <Card className="card" style={{ width: "40%", height: "50%" }}>
-          <h3>Endereço de Entrega</h3>
+          <Typography.Subtitle className="m-2 mb-4" bold>Entrega</Typography.Subtitle>
           <Info>
             {compra.Endereco.logradouro}, {compra.Endereco.bairro} -{" "}
             {compra.Endereco.numero}
