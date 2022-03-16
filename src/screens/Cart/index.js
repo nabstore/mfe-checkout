@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Info, Total } from "./styles";
 import { currencyFormatter, isAuthenticated, routes } from "@nabstore/utils";
 import { Anchor, Button, Typography } from "@nabstore/styleguide";
-import BestOffers from "../../components/BestOffers";
+import { BestOffersFragment } from "@nabstore/mfe-products";
 import CartProduct from "../../components/CartProduct";
 
 const Cart = ({
@@ -34,6 +34,10 @@ const Cart = ({
     } else {
       navigate(routes.LOGIN);
     }
+  };
+
+  const addProductToCart = (data) => {
+    dispatch(addProductToCartAction(data));
   };
 
   return (
@@ -83,7 +87,7 @@ const Cart = ({
         </>
       )}
 
-      <BestOffers addProductToCartAction={addProductToCartAction} />
+      <BestOffersFragment addProductToCart={addProductToCart} cart={cart} />
     </div>
   );
 };
