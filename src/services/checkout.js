@@ -72,10 +72,6 @@ const getEstimativaEntrega = async (cep) => {
   return res.data;
 };
 
-const getImageUrl = (produtoId) => {
-  return `${process.env.SERVICE_CHECKOUT_BASE_URL}/produtos/${produtoId}/image`;
-};
-
 const checkoutMethods = {
   createCartao,
   createCompra,
@@ -83,7 +79,6 @@ const checkoutMethods = {
   fetchCompras,
   fetchCompraById,
   getEstimativaEntrega,
-  getImageUrl,
 };
 
 export default checkoutMethods;

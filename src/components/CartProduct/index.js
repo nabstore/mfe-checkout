@@ -1,6 +1,6 @@
 import React from "react";
-import checkoutMethods from "../../services/checkout";
 import { currencyFormatter, defaultImages } from "@nabstore/utils";
+import { ProductImageFragment } from "@nabstore/mfe-products";
 import { Button } from "@nabstore/styleguide";
 import { ProdutoTitle, Info, Value } from "./styles";
 import Card from "../Card";
@@ -13,8 +13,8 @@ const CartProduct = ({ produto, removeProductFromCartAction }) => {
     <Card className="card" key={produto.id}>
       <div className="d-flex flex-row  justify-content-around">
         <div className="d-flex justify-content-center">
-          <img
-            src={checkoutMethods.getImageUrl(produto.id)}
+          <ProductImageFragment
+            produtoId={produto.id}
             onError={(e) => (e.target.src = defaultImages.NO_IMAGE_URL)}
             className="img-thumbnail"
             alt={produto.nome}
