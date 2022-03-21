@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 
 const useGetCompra = (id) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -7,7 +7,7 @@ const useGetCompra = (id) => {
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
-    apiMethods
+    checkoutMethods
       .fetchCompraById(id)
       .then((resp) => {
         setError(undefined);

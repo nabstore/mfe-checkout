@@ -1,5 +1,5 @@
 import { useState } from "react";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 
 const useCreateCompra = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -8,7 +8,7 @@ const useCreateCompra = () => {
 
   const createCompra = (userId, cartaoId, enderecoId, produtos) => {
     setIsLoading(true);
-    apiMethods
+    checkoutMethods
       .createCompra({
         userId,
         cartaoId,

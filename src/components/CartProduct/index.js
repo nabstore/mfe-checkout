@@ -1,5 +1,5 @@
 import React from "react";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 import { currencyFormatter, defaultImages } from "@nabstore/utils";
 import { Button } from "@nabstore/styleguide";
 import { ProdutoTitle, Info, Value } from "./styles";
@@ -14,7 +14,7 @@ const CartProduct = ({ produto, removeProductFromCartAction }) => {
       <div className="d-flex flex-row  justify-content-around">
         <div className="d-flex justify-content-center">
           <img
-            src={apiMethods.getImageUrl(produto.id)}
+            src={checkoutMethods.getImageUrl(produto.id)}
             onError={(e) => (e.target.src = defaultImages.NO_IMAGE_URL)}
             className="img-thumbnail"
             alt={produto.nome}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 
 const useGetCompras = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -7,7 +7,7 @@ const useGetCompras = () => {
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
-    apiMethods
+    checkoutMethods
       .fetchCompras()
       .then((resp) => {
         setError(undefined);
