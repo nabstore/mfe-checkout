@@ -15,6 +15,7 @@ module.exports = (webpackConfigEnv, argv) => {
     externals: ["styled-components"],
     plugins: [
       new webpack.EnvironmentPlugin(['API_BASE_URL']),
+      new webpack.EnvironmentPlugin(['SERVICE_CHECKOUT_BASE_URL']),
     ],
   });
 };

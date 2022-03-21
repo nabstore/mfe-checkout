@@ -1,5 +1,5 @@
 import { useState } from "react";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 
 const useGetDeliveryEstimative = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ const useGetDeliveryEstimative = () => {
   const getEstimative = (cep) => {
     setIsLoading(true);
     setError(undefined);
-    apiMethods
+    checkoutMethods
       .getEstimativaEntrega(cep)
       .then((resp) => {
         setData(resp);

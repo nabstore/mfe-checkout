@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import apiMethods from "../../services/api";
+import checkoutMethods from "../../services/checkout";
 
 const useCreateCartao = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ const useCreateCartao = () => {
 
   const createCartao = (number, apelido, cvv, titular, validade) => {
     setIsLoading(true);
-    apiMethods
+    checkoutMethods
       .createCartao({
         number,
         apelido,
