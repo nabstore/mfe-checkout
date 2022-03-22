@@ -38,7 +38,7 @@ const LastPurchasesFragment = () => {
       </div>
       <div className="d-flex flex-wrap mt-3 justify-content-start">
         {compras.slice(0, 4).map((compra) => (
-          <Card style={{ width: "16rem" }} className="card" key={compra.id}>
+          <Card style={{ width: "18rem" }} className="card" key={compra.id}>
             <div className="card-body">
               <h5 className="card-title">
                 Feita em {new Date(compra.createdAt).toLocaleDateString()}
