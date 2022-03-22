@@ -20,15 +20,49 @@ const Cartoes = ({ selectCartAction }) => {
     navigate(routes.ENDERECOS);
   };
 
-  if (error) {
-    return <></>;
-  }
+  const CartoesList = () => {
+    if (isLoading || !cartoes) {
+      return (
+        <div className="d-flex flex-column align-items-center">
+          <LoadingIcon.Oval className="mt-5" stroke="#2f2f2f" />
+        </div>
+      );
+    }
+
+    if (error) {
+      return (
+        <div className="d-flex flex-column align-items-center">
+          <Typography.Subtitle>Erro ao carregar cartões.</Typography.Subtitle>
+        </div>
+      );
+    }
+
+    if (cartoes.length === 0) {
+      return (
+        <div className="d-flex flex-column align-items-center">
+          <Typography.Subtitle>Você ainda não tem cartões cadastrados.</Typography.Subtitle>
+        </div>
+      );
+    }
+
+    return (
+      <div className="d-flex flex-column align-items-center mb-5">
+        {cartoes.map((cartao) => (
+          <CartaoItem
+            key={cartao.id}
+            cartao={cartao}
+            handleSelect={handleSelect}
+          />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="container pb-5">
-      <CreateCartaoModal 
-        handleClose={() => setIsCreateCartaoModalOpen(false)} 
-        showModal={isCreateCartaoModalOpen} 
+      <CreateCartaoModal
+        handleClose={() => setIsCreateCartaoModalOpen(false)}
+        showModal={isCreateCartaoModalOpen}
       />
 
       <Anchor.GoBack path={routes.CART} text="Voltar ao carrinho" />
@@ -43,21 +77,8 @@ const Cartoes = ({ selectCartAction }) => {
         <Typography.Title>Cartões</Typography.Title>
       </div>
 
-      {isLoading ? (
-        <div className="d-flex flex-column align-items-center">
-          <LoadingIcon.Oval className="mt-5" stroke="#2f2f2f" />
-        </div>
-      ) : (
-        <div className="d-flex flex-column align-items-center mb-5">
-          {cartoes.map((cartao) => (
-            <CartaoItem
-              key={cartao.id}
-              cartao={cartao}
-              handleSelect={handleSelect}
-            />
-          ))}
-        </div>
-      )}
+      <CartoesList />
+
     </div>
   );
 };
