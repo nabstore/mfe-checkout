@@ -31,7 +31,7 @@ const Cartoes = ({ selectCartAction }) => {
 
     if (error) {
       return (
-        <div className="d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center mt-5">
           <Typography.Subtitle>Erro ao carregar cartões.</Typography.Subtitle>
         </div>
       );
@@ -39,7 +39,7 @@ const Cartoes = ({ selectCartAction }) => {
 
     if (cartoes.length === 0) {
       return (
-        <div className="d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center mt-5">
           <Typography.Subtitle>Você ainda não tem cartões cadastrados.</Typography.Subtitle>
         </div>
       );

@@ -8,10 +8,6 @@ import CompraItem from "../../components/CompraItem";
 const Compras = () => {
   const { data: compras, isLoading, error } = useGetCompras();
 
-  if (error) {
-    return <></>;
-  }
-
   const ComprasList = () => {
     if (isLoading || !compras) {
       return (
@@ -23,7 +19,7 @@ const Compras = () => {
 
     if (error) {
       return (
-        <div className="d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center mt-5">
           <Typography.Subtitle>Erro ao carregar compras.</Typography.Subtitle>
         </div>
       );
@@ -31,7 +27,7 @@ const Compras = () => {
 
     if (compras.length === 0) {
       return (
-        <div className="d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center mt-5">
           <Typography.Subtitle>Você não tem compras ainda.</Typography.Subtitle>
         </div>
       );
