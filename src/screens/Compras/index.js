@@ -8,9 +8,39 @@ import CompraItem from "../../components/CompraItem";
 const Compras = () => {
   const { data: compras, isLoading, error } = useGetCompras();
 
-  if (error) {
-    return <></>;
-  }
+  const ComprasList = () => {
+    if (isLoading || !compras) {
+      return (
+        <div className="d-flex flex-column align-items-center">
+          <LoadingIcon.Oval className="mt-5" stroke="#2f2f2f" />
+        </div>
+      );
+    }
+
+    if (error) {
+      return (
+        <div className="d-flex flex-column align-items-center mt-5">
+          <Typography.Subtitle>Erro ao carregar compras.</Typography.Subtitle>
+        </div>
+      );
+    }
+
+    if (compras.length === 0) {
+      return (
+        <div className="d-flex flex-column align-items-center mt-5">
+          <Typography.Subtitle>Você não tem compras ainda.</Typography.Subtitle>
+        </div>
+      );
+    }
+
+    return (
+      <div className="d-flex flex-column align-items-center mb-5">
+        {compras.map((compra) => (
+          <CompraItem key={compra.id} compra={compra} />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="container">
@@ -20,21 +50,7 @@ const Compras = () => {
         <Typography.Title>Minhas Compras</Typography.Title>
       </div>
 
-      {isLoading ? (
-        <div className="d-flex flex-column align-items-center">
-          <LoadingIcon.Oval className="mt-5" stroke="#2f2f2f" />
-        </div>
-      ) : compras.length === 0 ? (
-        <NoPurchasesMessage className="d-flex justify-content-center mt-5">
-          Você ainda não fez compra alguma =(.
-        </NoPurchasesMessage>
-      ) : (
-        <div className="d-flex flex-column align-items-center mb-5">
-          {compras.map((compra) => (
-            <CompraItem key={compra.id} compra={compra} />
-          ))}
-        </div>
-      )}
+      <ComprasList />
     </div>
   );
 };
